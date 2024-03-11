@@ -136,7 +136,8 @@ class MouseOptions extends OptionsPanel {
   }
 
   private void setCurrentTool(Tool t) {
-    curTool = t;
+    //curTool = t;
+    System.out.println("change of tool");
     localeChanged();
   }
 

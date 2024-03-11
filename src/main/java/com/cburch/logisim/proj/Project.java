@@ -561,6 +561,7 @@ public class Project {
   }
 
   public void setTool(Tool value) {
+    System.out.println("set tool!");
     if (tool == value) return;
     final var old = tool;
     final var canvas = frame.getCanvas();

@@ -72,6 +72,7 @@ public class Canvas extends JComponent {
   public void setTool(CanvasTool value) {
     CanvasTool oldValue = listener.getTool();
     if (value != oldValue) {
+      System.out.println("heyeyye");
       listener.setTool(value);
       firePropertyChange(TOOL_PROPERTY, oldValue, value);
     }

@@ -27,11 +27,7 @@ import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.ProjectEvent;
 import com.cburch.logisim.proj.ProjectListener;
 import com.cburch.logisim.std.base.BaseLibrary;
-import com.cburch.logisim.tools.AddTool;
-import com.cburch.logisim.tools.EditTool;
-import com.cburch.logisim.tools.Library;
-import com.cburch.logisim.tools.PokeTool;
-import com.cburch.logisim.tools.Tool;
+import com.cburch.logisim.tools.*;
 import com.cburch.logisim.vhdl.base.VhdlEntity;
 import javax.swing.JPopupMenu;
 
@@ -49,12 +45,12 @@ class ToolboxManip implements ProjectExplorer.Listener {
   }
 
   private static void setDefaultTool(Tool lastSelected, Project proj) {
+    lastSelected = null;
     if (lastSelected != null) {
-      proj.setTool(lastSelected);
     } else {
       for (final var sub : proj.getLogisimFile().getLibraries()) {
         if (sub instanceof BaseLibrary) {
-          final var tool = sub.getTool(EditTool._ID);
+          final var tool = sub.getTool(TextTool._ID);
           if (tool != null) {
             proj.setTool(tool);
             break;

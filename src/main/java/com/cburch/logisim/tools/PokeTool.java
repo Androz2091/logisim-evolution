@@ -179,6 +179,7 @@ public class PokeTool extends Tool {
 
   @Override
   public void keyPressed(Canvas canvas, KeyEvent e) {
+    System.out.println(e);
     if (pokeCaret != null) {
       pokeCaret.keyPressed(e);
       canvas.getProject().repaintCanvas();

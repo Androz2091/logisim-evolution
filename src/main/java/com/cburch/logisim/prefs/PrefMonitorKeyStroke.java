@@ -20,7 +20,7 @@ import javax.swing.KeyStroke;
 /**
  * Class responsible for monitoring and managing keystroke preferences.
  */
-public class PrefMonitorKeyStroke extends AbstractPrefMonitor<KeyStroke> {
+public final class PrefMonitorKeyStroke extends AbstractPrefMonitor<KeyStroke> {
   private final byte[] defaultData;
   private byte[] value;
   private String prefName;

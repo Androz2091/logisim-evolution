@@ -30,7 +30,10 @@ public class KeyboardToolSelection extends AbstractAction {
     final var imap = toolbar.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
     final var mask = toolbar.getToolkit().getMenuShortcutKeyMaskEx();
     for (var i = 0; i < 10; i++) {
-      final var keyStroke = KeyStroke.getKeyStroke((char) ('0' + i), mask);
+      final var keyStroke = KeyStroke.getKeyStroke(
+              i == 1 ? 150 : i == 2 ? 0 : i == 3 ? 152 : (char) ('0' + i)
+      , mask);
+      System.out.println(keyStroke.getKeyCode());
       final var j = (i == 0 ? 10 - 1 : i - 1);
       final var action = new KeyboardToolSelection(toolbar, j);
       final var key = "ToolSelect" + i;
@@ -41,6 +44,7 @@ public class KeyboardToolSelection extends AbstractAction {
 
   @Override
   public void actionPerformed(ActionEvent event) {
+    System.out.println("action performed");
     final var model = toolbar.getToolbarModel();
     var i = -1;
     for (final var item : model.getItems()) {
